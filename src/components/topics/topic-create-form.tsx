@@ -5,6 +5,7 @@ import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 import * as actions from "../../actions";
 import { useActionState } from "react";
+import Image from "next/image";
 export default function CreateTopic() {
   const [formState, action] = useActionState(actions.TopicCreate, {
     errors: {},
@@ -12,7 +13,10 @@ export default function CreateTopic() {
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Button variant="secondary">Create A Topic</Button>
+        <div className=" flex h-20 w-full bg-purple-400 rounded-2xl items-center justify-center font-bold gap-1">
+          <Image src="/plus.png" alt="plus" height={10} width={30} />
+          <h2 className="text-2xl text-white">Create A Topic</h2>
+        </div>
       </PopoverTrigger>
       <PopoverContent side="left">
         <form action={action}>
